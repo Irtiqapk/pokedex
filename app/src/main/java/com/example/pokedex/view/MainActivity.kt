@@ -1,4 +1,4 @@
-package com.example.pokedex
+package com.example.pokedex.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,8 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.pokedex.model.PokemonItem
 import com.example.pokedex.ui.theme.PokedexTheme
-import com.example.pokedex.view.OnItemClickListener
-import com.example.pokedex.view.PokemonItem
 import com.example.pokedex.viewmodel.PokemonViewModel
 
 class MainActivity : ComponentActivity(), OnItemClickListener {
