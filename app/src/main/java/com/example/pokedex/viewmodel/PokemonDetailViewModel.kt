@@ -5,21 +5,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pokedex.model.DetailResponseModel
 import com.example.pokedex.network.RetrofitInstance
 import com.example.pokedex.model.PokemonItem
 import kotlinx.coroutines.launch
 
-class PokemonViewModel : ViewModel() {
+class PokemonDetailViewModel : ViewModel() {
     private val apiService = RetrofitInstance.apiService
-    var pokemonListResponse:List<PokemonItem> by mutableStateOf(listOf())
+    var pokemonDetailResponseModel: DetailResponseModel by mutableStateOf(DetailResponseModel())
     var errorMessage: String by mutableStateOf("")
-    fun getAllPokemons() {
+    fun getPokemonDetails(url:String) {
         viewModelScope.launch {
             try {
-                pokemonListResponse = apiService.getPokemonData().results
+                pokemonDetailResponseModel = apiService.getPokemonDetails(url)
             } catch (e: Exception) {
                 // Handle errors
-                errorMessage = e.message. toString()
+                errorMessage = e.message.toString()
             }
         }
     }

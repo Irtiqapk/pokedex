@@ -1,6 +1,5 @@
-package com.example.pokedex
+package com.example.pokedex.network
 
-import com.example.pokedex.network.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient

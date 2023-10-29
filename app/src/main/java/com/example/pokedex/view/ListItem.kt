@@ -15,12 +15,12 @@ import com.example.pokedex.model.PokemonItem
 
 
 @Composable
-fun PokemonItem(data: PokemonItem) {
+fun PokemonItem(data: PokemonItem, clickListener: OnItemClickListener) {
     Card(
         modifier = Modifier.padding(8.dp)
             .fillMaxSize()
             .clickable {
-                Log.e("IM",data.url)
+                clickListener.onItemClick(data)
             }
     )
     {
@@ -28,8 +28,11 @@ fun PokemonItem(data: PokemonItem) {
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(text = data.name.capitalize(),
-                modifier = Modifier.weight(.8f))
+            Text(text = data.name.capitalize(), modifier = Modifier.weight(.8f))
         }
     }
+}
+
+interface OnItemClickListener {
+    fun onItemClick(item: PokemonItem)
 }
